@@ -1,6 +1,6 @@
 <?php
 require_once("conexion.php");
-require_once "model/model_usuario.php";
+
 
 class tema
 {

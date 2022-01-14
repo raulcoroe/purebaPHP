@@ -31,7 +31,7 @@ function logIn()
             $sesion->set('alias', ($_POST['alias']));
             header("Location:index.php");
         } else {
-            echo "<div class='form'>Nombre de usuario o contraseña incorrectos.</div>";
+            echo '<script>alert("Nombre de usuario o contrasena incorrectos");window.location.href="index.php?action=mostrarLogIn&controller=controller_usuario"</script>';
         }
     }
 }

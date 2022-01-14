@@ -24,7 +24,7 @@
             <a href="index.php?action=mostrarRegister&controller=controller_usuario">Registrate</a>
             <a href="index.php?action=mostrarLogin&controller=controller_usuario">Unete</a>
             <a href="index.php?action=cerrarSesion&controller=controller_usuario">Cerrar sesion</a>
-            <p class = "sesion"> <?php if(isset($_SESSION['alias'])) echo "Has iniciado sesión con: ", $_SESSION['alias'] ?></p>
+            <p class="sesion"> <?php if (isset($_SESSION['alias'])) echo "Has iniciado sesión con: ", $_SESSION['alias'] ?></p>
             </a>
         </div>
     </div>
@@ -44,38 +44,40 @@
 </div>
 <div class="zonas-centrales">
     <div class="texto">
-        <h2>Temas</h2>
+        <h2>Mensajes</h2>
     </div>
     <div class="tabla">
         <?php
         //Recorre mediante foreach todos los temas del foro y los pinta por pantalla
         if (!empty($mensajes)) {
-            foreach ($mensajes as $tema) {
-                $id_tema = $tema['id_tema'];
+            foreach ($mensajes as $mensaje) {
+                $id_tema = $mensaje['id_tema'];
                 if (!empty($usuario)) {
                     echo '
                                 <div class="tabla-elemento">
-                                    <div class="elemento"> 
-                                        <a class="titulo-tema" href="index.php?action=listarMensajes&controller=controller_mensaje&id_tema='.$id_tema.'" >', $tema['titulo'], '</a>
-                                        <p name="usuario">Creado por: ', $usuario->getAliasById($tema['id_usuario']), '</p>
-                                        <p name="fecha">Fecha:  ', $tema['fecha_creacion'], '</p>
+                                    <div class="elemento-texto"> 
+                                        <p name=""texto">' . $mensaje ['texto'] . ' </p>
                                     </div>
                                     <div class="elemento"> 
-                                        <a href="index.php?id=' . $tema['id_tema'] .'&usuario='. $tema['id_usuario'] .'
-                                        &action='."eliminarTemaController".'&controller='."controller_tema".'" 
-                                        type="submit" class="boton" >Borrar</a>
+                                        <p name="usuario">Creado por: ', $usuario->getAliasById($mensaje['id_usuario']), '</p>
+                                        <p name="fecha">Fecha:  ', $mensaje['fecha_creacion'], '</p>
                                     </div> 
+                                    <div class="elemento"> 
+                                        <a href="index.php?id=' . $mensaje['id_mensaje'] . '&usuario=' . $mensaje['id_usuario'] . '
+                                        &action=' . "eliminarMensajeController" . '&controller=' . "controller_mensaje" . '" 
+                                        type="submit" class="boton" >Borrar</a>
+                                    </div>
                                 </div>';
                 }
             }
         }
 
-        ?>
+        echo '
     </div>
     <div class="boton-anadir">
-        <a class="boton" href="index.php?action=formularioAnadir&controller=controller_tema">Añadir tema</a>
+        <a class="boton" href="index.php?action=formularioAnadirMensaje&controller=controller_mensaje&id_tema=' . $_GET['id_tema'] . '">Añadir mensaje</a>
+    </div>'
+        ?>
     </div>
-
-</div>
 </body>
 </html>
