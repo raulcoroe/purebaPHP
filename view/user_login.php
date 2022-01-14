@@ -37,7 +37,7 @@
     <header>
         <h1>Registro de usuario</h1>
     </header>
-    <form action="" method="post">
+    <form action="index.php?action=logIn&controller=controller_usuario" method="post">
         <div class="formulario">
             <form action="" method="post">
                 <div class="form">

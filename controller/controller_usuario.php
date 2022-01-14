@@ -1,23 +1,26 @@
 <?php
+require "sesion.php";
+$sesion = new Sesion();
+
 function registrarUsuario()
 {
     require('model/model_usuario.php');
 
     //Se comprueba que los campos sean correctos y se crea un nuevo usuario
     if (isset($_POST['submit'])) {
+        $sesion = new Sesion();
+        $sesion->borrar_sesion();
         $usuario = new Usuario($_POST['user'], $_POST['password'], $_POST['email']);
         if ($usuario->comprobaciones() !== false) {
             $usuario->nuevo();
-//            header("Location:index.php");
+            header("Location:index.php");
         }
     }
-    include "view/user_register.php";
 }
 
 function logIn()
 {
     require('model/model_usuario.php');
-    require "sesion.php";
 
     //Verificacion de que el usuario existe al hacer login y se crea una nueva sesion
     if (isset($_POST['submit'])) {
@@ -44,5 +47,9 @@ function mostrarRegister()
     require "view/user_register.php";
 }
 
+function cerrarSesion(){
+    $sesion = new Sesion();
+    $sesion->borrar_sesion();
+}
 
 ?>

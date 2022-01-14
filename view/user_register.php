@@ -36,15 +36,14 @@
     <header>
         <h1>Registro de usuario</h1>
     </header>
-    <form action="" method="post">
+    <form action="index.php?action=registrarUsuario&controller=controller_usuario" method="post">
         <div class="formulario">
             <form action="" method="post">
                 <div class="form">
                     <input type="text" name="user" placeholder="Alias" class="form-input"><br/>
                     <input type="password" name="password" placeholder="Contraseña" class="form-input"><br/>
                     <input type="text" name="email" placeholder="Email" class="form-input"><br/>
-                    <input href="index.php?action=registrarUsuario&controller=controller_usuario"
-                           type='submit' name='submit' value='Registrarse' class="form-boton">
+                    <input type='submit' name='submit' value='Registrarse' class="form-boton">
                 </div>
             </form>
         </div>

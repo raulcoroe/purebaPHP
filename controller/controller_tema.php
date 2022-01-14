@@ -35,4 +35,8 @@ function iniciarSesion(){
     $Sesion = new Sesion();
 }
 
+function anadirTema() {
+    require "model/model_tema.php";
+
+}
 ?>
