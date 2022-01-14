@@ -1,5 +1,5 @@
-<?php
 
+<?php
 function listarTemas(){
     iniciarSesion();
     require "model/model_tema.php";

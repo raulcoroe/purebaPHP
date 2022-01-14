@@ -1,21 +1,22 @@
 <?php
-
-function registrarUsuario(){
-    require ('model/model_usuario.php');
+function registrarUsuario()
+{
+    require('model/model_usuario.php');
 
     //Se comprueba que los campos sean correctos y se crea un nuevo usuario
     if (isset($_POST['submit'])) {
         $usuario = new Usuario($_POST['user'], $_POST['password'], $_POST['email']);
         if ($usuario->comprobaciones() !== false) {
             $usuario->nuevo();
-            header("Location:index.php");
+//            header("Location:index.php");
         }
     }
     include "view/user_register.php";
 }
 
-function logIn(){
-    require ('model/model_usuario.php');
+function logIn()
+{
+    require('model/model_usuario.php');
     require "sesion.php";
 
     //Verificacion de que el usuario existe al hacer login y se crea una nueva sesion
@@ -30,7 +31,17 @@ function logIn(){
             echo "<div class='form'>Nombre de usuario o contraseña incorrectos.</div>";
         }
     }
+}
 
+function mostrarLogin()
+{
+
+    require "view/user_login.php";
+}
+
+function mostrarRegister()
+{
+    require "view/user_register.php";
 }
 
 
