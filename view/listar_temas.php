@@ -77,7 +77,7 @@ $sesion = new Sesion();
         ?>
     </div>
     <div class="boton-anadir">
-        <a class="boton" href="anadir_tema.php">Añadir tema</a>
+        <a class="boton" href="index.php?action=anadirTema&controller=controller_tema">Añadir tema</a>
     </div>
 
 </div>
